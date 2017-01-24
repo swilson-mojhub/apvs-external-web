@@ -19,10 +19,10 @@ module.exports = {
   getIsOlderThan: function (displayName, options) { return `Must be over ${options.years} years of age` },
   getIsValidOption: function (displayName) { return `${displayName} must be a valid option` },
   getUploadTooLarge: 'File uploaded too large',
-  getUploadIncorrectType: 'File uploaded was not an image or pdf',
+  getUploadIncorrectType: 'File must be a JPG, PNG or PDF',
   getUploadFileAndAlternativeSelected: 'Both file uploaded and alternative option selected',
-  getInvalidReferenceNumberAndDob: 'Could not find any claims for these details',
-  getMadeClaimForPrisonerBeforeIsRequired: 'You must confirm if you have made a claim before',
+  getInvalidReferenceNumberAndDob: 'There is no claim with this reference number and date of birth. Check your information is correct and try again.',
+  getMadeClaimForPrisonerBeforeIsRequired: 'Tell us if you have made a claim before',
   getNoUpdatesMade: 'No updates were made, please ensure all documents are uploaded for your application to be processed or send a message to your caseworker. Otherwise press cancel to return to your claims',
   getInvalidReference: 'Reference is invalid',
   getMalwareDetected: 'We have detected a virus in this file and can not accept it. Please upload a virus free version.'
