@@ -16,7 +16,7 @@ const CLAIM_EXPENSES_NO_STATUS = [{
 }]
 
 const CLAIM_EXPENSES_COST_NOT_SET = [{
-  Cost: '',
+  Cost: ''
 }]
 
 const ELIGIBILITY = {
