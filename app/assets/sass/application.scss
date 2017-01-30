@@ -926,7 +926,11 @@ only screen and (min-resolution: 2dppx) {
 }
 
 .remove-upload {
-    display: none;
+  display: none;
+}
+
+#document-preview { 
+  border-style: solid;
 }
 
 .success-summary {

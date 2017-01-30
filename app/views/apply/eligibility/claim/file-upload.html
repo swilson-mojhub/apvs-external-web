@@ -29,10 +29,22 @@
             <a id="remove-file-upload" class="link pull-right remove-upload" href="{{ URL }}">remove</a>
           </div>
           <div>
+            <p class="document-preview-text hidden">
+              Preview of the document to be uploaded:
+            </p>
+            <img id="document-preview" class="hidden" height="200" src="">
+          </div>
+          <div>
             <label id="label" class="custom-file-upload">
               <div id='choose-file'>Choose file</div>
-              <input id="document" type="file" name="document" />
+              <input id="document" type="file" name="document"/>
             </label>
+          </div>
+          <div class="document-preview-text hidden">
+            <br>
+            <p>
+              Click the continue button below to complete the upload.
+            </p>
           </div>
 
         </div>

@@ -21,6 +21,10 @@ var fs = Promise.promisifyAll(require('fs'))
 var csrfToken
 
 module.exports = function (router) {
+router.get('/upload-preview', function (req, res) {
+get(req, res)
+})
+
   router.get('/apply/:claimType/eligibility/:referenceId/claim/:claimId/summary/file-upload', function (req, res) {
     get(req, res)
   })
