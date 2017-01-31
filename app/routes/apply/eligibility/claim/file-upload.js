@@ -15,7 +15,7 @@ const config = require('../../../../../config')
 const tasksEnum = require('../../../../constants/tasks-enum')
 const insertTask = require('../../../../services/data/insert-task')
 const logger = require('../../../../services/log')
-var path = require('path')
+const moveScannedFileToStorage = require('../../../../services/move-scanned-file-to-storage')
 var Promise = require('bluebird').Promise
 var fs = Promise.promisifyAll(require('fs'))
 var csrfToken
@@ -106,7 +106,7 @@ function checkForMalware (req, res, next, redirectURL) {
           throw new ValidationError({upload: [ERROR_MESSAGES.getMalwareDetected]})
         }
 
-        moveScannedFileToStorage(req, getTargetDir(req))
+        moveScannedFileToStorage(req.file, req.fileUpload, getTargetDir(req))
         ClaimDocumentInsert(ids.reference, ids.eligibilityId, claimId, req.fileUpload).then(function () {
           res.redirect(redirectURL)
         }).catch(function (error) {
@@ -160,15 +160,6 @@ function setReferenceIds (req) {
     req.params.referenceId = referenceIdHelper.getReferenceId(reference, id)
   }
   return { eligibilityId: id, reference: reference }
-}
-
-function moveScannedFileToStorage (req, targetDir) {
-  var targetFilePath = path.join(targetDir, req.file.filename)
-  // fs.rename will fail when mapped to Azure FS, thus copy + delete
-  fs.createReadStream(req.file.path).pipe(fs.createWriteStream(targetFilePath))
-  fs.unlinkAsync(req.file.path).catch()
-  req.fileUpload.destination = targetDir
-  req.fileUpload.path = targetFilePath
 }
 
 function getTargetDir (req) {
