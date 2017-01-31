@@ -9,9 +9,10 @@ describe('routes/apply/eligibility/claim/file-upload', function () {
   const REFERENCE = 'V123456'
   const ELIGIBILITYID = '1234'
   const REFERENCEID = `${REFERENCE}-${ELIGIBILITYID}`
+  const DOB = '1990-12-12'
   const CLAIMID = '1'
   const ROUTE = `/apply/first-time/eligibility/${REFERENCEID}/claim/${CLAIMID}/summary/file-upload?document=`
-  const YOUR_CLAIMS_UPLOAD_ROUTE = `/your-claims/:dob/${REFERENCEID}/${CLAIMID}/file-upload?document=`
+  const YOUR_CLAIMS_UPLOAD_ROUTE = `/your-claims/${DOB}/${REFERENCEID}/${CLAIMID}/file-upload?document=`
 
   var app
   var urlPathValidatorStub
