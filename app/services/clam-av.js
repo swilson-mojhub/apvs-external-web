@@ -1,5 +1,5 @@
 const config = require('../../config')
-var Promise = require('bluebird').Promise
+const Promise = require('bluebird').Promise
 
 var clam
 try {
@@ -13,8 +13,7 @@ try {
   })
 } catch (error) {
   // Suppress clamscan error if disabled
-  if (config.ENABLE_MALWARE_SCANNING !== 'true' &&
-      !error.message.includes('No valid & active virus scanning binaries are active and available!')) {
+  if (config.ENABLE_MALWARE_SCANNING !== 'true' && !error.message.includes('No valid & active virus scanning binaries are active and available!')) {
     throw error
   }
 }
