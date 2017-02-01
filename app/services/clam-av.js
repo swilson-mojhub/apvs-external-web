@@ -22,7 +22,9 @@ module.exports.scan = function (filePath) {
   return new Promise(function (resolve, reject) {
     if (config.ENABLE_MALWARE_SCANNING === 'true') {
       clam.is_infected(filePath, function (error, file, infected) {
-        if (error) reject(error)
+        if (error) {
+          reject(error)
+        }
         return resolve(infected)
       })
     } else {
