@@ -30,7 +30,8 @@ module.exports = function (router) {
       dob: req.session.dobEncoded,
       relationship: req.session.relationship,
       benefit: req.session.benefit,
-      referenceId: req.session.referenceId
+      referenceId: req.session.referenceId,
+      nationalInsuranceNumber: req.session.nationalInsuranceNumber
     })
   })
 

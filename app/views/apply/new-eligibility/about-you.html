@@ -68,16 +68,21 @@ Enter information about you - {{ serviceName }}
         <div class="form-group {% if errors['NationalInsuranceNumber'][0] or isDuplicateClaim %} error {% endif %}">
           <label id="NationalInsuranceNumber" class="form-label-bold" for="national-insurance-number-input">National
             Insurance number</label>
-          {% if errors['NationalInsuranceNumber'][0] %}
-          <span class="error-message" id="error-message-national">{{ errors['NationalInsuranceNumber'][0] }}</span>
+          {% if not nationalInsuranceNumber %}
+            {% if errors['NationalInsuranceNumber'][0] %}
+              <span class="error-message" id="error-message-national">{{ errors['NationalInsuranceNumber'][0] }}</span>
+            {% endif %}
+            <p class="form-hint">For example, QQ123456C</p>
+            <input id="national-insurance-number-input"
+                  name="NationalInsuranceNumber"
+                  type="text"
+                  autocomplete="off"
+                  class="form-control"
+                  value="{{ visitor['NationalInsuranceNumber'] }}">
+          {% else %}
+            <span>{{ nationalInsuranceNumber }}</span>
+            <input id="national-insurance-number-input" name="NationalInsuranceNumber" value="{{ nationalInsuranceNumber }}" type="hidden">
           {% endif %}
-          <p class="form-hint">For example, QQ123456C</p>
-          <input id="national-insurance-number-input"
-                 name="NationalInsuranceNumber"
-                 type="text"
-                 autocomplete="off"
-                 class="form-control"
-                 value="{{ visitor['NationalInsuranceNumber'] }}">
         </div>
 
         <div class="heading-medium-prevent-margin-collapse">
